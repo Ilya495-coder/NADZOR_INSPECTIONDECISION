@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -8,12 +9,13 @@ import java.time.Duration;
 public class Autorized {
     private WebDriver webDriver;
 
-    public Autorized(WebDriver webDriver, String url) {
+    public Autorized(WebDriver webDriver) {
         this.webDriver = webDriver;
-        webDriver.get(url);
+
     }
+
     //авторизация
-    By clickAutorized = By.xpath(".//a[contains(@class,'login-page__login title_login ')]");
+    By clickAutorized = By.xpath(".//a[contains(@class,'login-page__login title_login')]");
     By userNameField = By.id("username");
     By passwordField = By.id("password");
     By clickEnter = By.id("kc-login");
@@ -21,12 +23,14 @@ public class Autorized {
     By resoult = By.xpath("//span[@class='m-r-xs' and normalize-space()='Все задачи']");
 
     public void getClickLogin() {
-        webDriver.findElement(clickAutorized).click();
+        new WebDriverWait(webDriver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.elementToBeClickable(clickAutorized)).click();
     }
 
     public void clearName() {
         webDriver.findElement(userNameField).clear();
     }
+
     public void setUserName(String login) {
         webDriver.findElement(userNameField).sendKeys(login);
     }
@@ -40,28 +44,29 @@ public class Autorized {
     }
 
     public void clickAutorize() {
-            new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(clickEnter)).click();
-        }
-        public void clickExit(){
-            new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(exit)).click();
-        }
+        new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(clickEnter)).click();
+    }
+
+    public void clickExit() {
+        new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(exit)).click();
+    }
+
     //проверка завершения задачи
-        public String resoultText(){
+    public String resoultText() {
         try {
-            return new WebDriverWait(webDriver ,Duration.ofSeconds(20))
+            return new WebDriverWait(webDriver, Duration.ofSeconds(20))
                     .until(ExpectedConditions.visibilityOfElementLocated(resoult)).getText();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException("Задача не завершена: витрина задач не открыта.");
         }
     }
 
-    public void autorize(String login, String password){
+    public void autorize(String login, String password) {
         getClickLogin();
-       clearName();
+        clearName();
         setUserName(login);
-       clearPassword();
-       setPassword(password);
+        clearPassword();
+        setPassword(password);
         clickAutorize();
     }
 }

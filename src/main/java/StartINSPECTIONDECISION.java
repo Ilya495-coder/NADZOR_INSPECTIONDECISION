@@ -132,7 +132,7 @@ public class StartINSPECTIONDECISION {
 
     public void enableExpertiseAndSpecialist() {
         webDriver.findElement(expertiseYes).click();
-        webDriver.findElement(specialistEngage).click();
+       // webDriver.findElement(specialistEngage).click();
     }
 
     public void selectSpecialist(String specialistName) {

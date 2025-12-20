@@ -17,7 +17,7 @@ public class SignKnmDecProject {
     }
     By buttonComplete=By.xpath(".//button[normalize-space()='Подписать']");
 
-    public void clickButtonCimplete() throws InterruptedException, AWTException {
+    public void clickButtonCimplete(){
         WebElement webElement =  new WebDriverWait(webDriver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.elementToBeClickable(buttonComplete));
         System.out.println(webElement.isDisplayed());
