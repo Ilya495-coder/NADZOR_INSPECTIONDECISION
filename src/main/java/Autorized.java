@@ -48,6 +48,7 @@ public class Autorized {
     }
 
     public void clickExit() {
+
         new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(exit)).click();
     }
 

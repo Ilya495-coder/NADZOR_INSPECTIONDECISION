@@ -6,39 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class SmartDevTest {
-    WebDriver webDriver;
-    SearchTask searchTask;
-    Autorized autorized;
-    Task task;
-    ApproveKnmDecProjectSpec approveKnmDecProjectSpec;
-    StartINSPECTIONDECISION startInspectionDesigion;
-    ApproveKnmDecProjectUn approveKnmDecProjectUn;
-    ApproveKnmDecProjectSign approveKnmDecProjectSign;
-    Flex_changeKNMInfoToErknmManually flexChangeKNMInfoToErknmManually;
-    Flex_enterKnmPassportId flex_enterKnmPassportId;
-    SignKnmDecProject signKnmDecProject;
-
-
-    @BeforeEach
-    public void getDriver() {
-        webDriver = new ChromeDriver();
-        searchTask = new SearchTask(webDriver);
-        autorized = new Autorized(webDriver);
-        task = new Task(webDriver);
-        approveKnmDecProjectSpec = new ApproveKnmDecProjectSpec(webDriver);
-        startInspectionDesigion = new StartINSPECTIONDECISION(webDriver);
-        approveKnmDecProjectUn = new ApproveKnmDecProjectUn(webDriver);
-        approveKnmDecProjectSign = new ApproveKnmDecProjectSign(webDriver);
-        flexChangeKNMInfoToErknmManually = new Flex_changeKNMInfoToErknmManually(webDriver);
-        flex_enterKnmPassportId = new Flex_enterKnmPassportId(webDriver);
-        signKnmDecProject = new SignKnmDecProject(webDriver);
-
-
-        webDriver.get("https://smartid.reinform.ru/iam/auth/realms/smart/protocol/openid-connect/auth?client_id=smart-app&redirect_uri=https%3A%2F%2Fsmart-dev.reinform-int.ru%2Foauth%2Fcallback&response_type=code&scope=openid+email+profile&state=554ddeb1-766c-48ce-b076-f3b37cdb7e2b");
-
-    }
-
+public class SmartDevTest extends Basetest{
 
     @Test
     public void printStartINSPECTIONDECISION() throws InterruptedException {
@@ -149,10 +117,9 @@ public class SmartDevTest {
         approveKnmDecProjectSign.clickButonApprove();
         //проверка завершения задачи
         autorized.resoultText();
-        //    webDriver.quit();
         autorized.clickExit();
 
-        Thread.sleep(3);
+        Thread.sleep(2000);
         //Разместить сведения о КНМ В ЕРКНМ вручную
         //авторизация
         autorized.autorize("ilya", "Ghbdtn123");
@@ -166,10 +133,9 @@ public class SmartDevTest {
         flexChangeKNMInfoToErknmManually.clickButtonComplete();
         //проверка завершения задачи
         autorized.resoultText();
-        // webDriver.quit();
         autorized.clickExit();
 
-        Thread.sleep(3);
+        Thread.sleep(2000);
         //Разместить идентификатор ЕРКНМ
         //авторизация
         autorized.autorize("ilya", "Ghbdtn123");
@@ -183,7 +149,6 @@ public class SmartDevTest {
         flex_enterKnmPassportId.clickButtonComplete();
         //проверка завершения задачи
         autorized.resoultText();
-        // webDriver.quit();
         autorized.clickExit();
 
 
@@ -199,5 +164,6 @@ public class SmartDevTest {
         //проверка завершения задачи
         autorized.resoultText();
     }
+
 
 }

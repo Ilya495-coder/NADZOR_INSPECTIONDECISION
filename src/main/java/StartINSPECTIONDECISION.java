@@ -60,7 +60,8 @@ public class StartINSPECTIONDECISION {
     By endTimeInput = By.xpath("//label[contains(.,'Дата окончания КНМ')]/following-sibling::div//input[@placeholder='--:--' and @class='form-control m-l-xl text-center']");
 
     // Срок проведения КНМ (раб. дней)
-    By deadlineInput = By.xpath(".//input[@class='form-control ng-untouched ng-pristine ng-valid' and @placeholder='ДН']");
+
+    By deadlineInput = By.xpath(".//input[@placeholder='ДН']");
 
     // Срок непосредственного взаимодействия
     By interactionTimeInput = By.xpath(".//input[@class='form-control ng-untouched ng-pristine ng-valid' and @placeholder='00:00']");
@@ -150,7 +151,7 @@ public class StartINSPECTIONDECISION {
 
         WebElement startTimeEl = webDriver.findElement(startTimeInput);
         startTimeEl.click();
-        startTimeEl.sendKeys(Keys.ENTER);
+        startTimeEl.sendKeys("1515");
 
         WebElement endDateEl = webDriver.findElement(endDateInput);
         endDateEl.click();
@@ -158,7 +159,7 @@ public class StartINSPECTIONDECISION {
 
         WebElement endTimeEl = webDriver.findElement(endTimeInput);
         endTimeEl.click();
-        endTimeEl.sendKeys(Keys.ENTER);
+        endTimeEl.sendKeys("1615");
     }
 
     public void setKnmDuration(String workDays, String interactionTime) {
