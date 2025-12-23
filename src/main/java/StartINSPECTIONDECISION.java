@@ -53,14 +53,13 @@ public class StartINSPECTIONDECISION {
 
     // Дата и время начала КНМ
     By startDateInput = By.xpath("//label[contains(.,'Дата начала КНМ')]/following-sibling::div//input[@placeholder='__.__.____' and @class='form-control']");
-    By startTimeInput = By.xpath("//label[contains(.,'Дата начала КНМ')]/following-sibling::div//input[@placeholder='--:--' and @class='form-control m-l-xl text-center']");
+    By startTimeInput = By.xpath(".//label[contains(text(),'Время начала КНМ')]/following-sibling::input");
 
     // Дата и время окончания КНМ
     By endDateInput = By.xpath("//label[contains(.,'Дата окончания КНМ')]/following-sibling::div//input[@placeholder='__.__.____' and @class='form-control']");
-    By endTimeInput = By.xpath("//label[contains(.,'Дата окончания КНМ')]/following-sibling::div//input[@placeholder='--:--' and @class='form-control m-l-xl text-center']");
+    By endTimeInput = By.xpath(".//label[contains(text(),'Время окончания КНМ')]/following-sibling::input");
 
     // Срок проведения КНМ (раб. дней)
-
     By deadlineInput = By.xpath(".//input[@placeholder='ДН']");
 
     // Срок непосредственного взаимодействия

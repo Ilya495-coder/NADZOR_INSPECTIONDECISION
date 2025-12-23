@@ -52,19 +52,6 @@ public class SmartDevTest extends Basetest{
         autorized.clickExit();
 
         //Спец управление вторая задача
-        autorized.autorize("ilya", "Ghbdtn123");
-        //заходим в витрину задач
-        searchTask.clickGosuslugi();
-        searchTask.getTasks();
-        task.getElementTask();
-        //завершаем задачу
-        approveKnmDecProjectSpec.clickButtonPrimary();
-        //проверка завершения задачи
-        autorized.resoultText();
-        //  webDriver.quit();
-        autorized.clickExit();
-
-        //Спец управление третья задача
         //авторизация
         autorized.autorize("tupitsyna_ks", "Ktupitsyna123");
         //заходим в витрину задач
@@ -78,7 +65,7 @@ public class SmartDevTest extends Basetest{
         //  webDriver.quit();
         autorized.clickExit();
 
-        //Спец управление четвертая задача
+        //Спец управление третья задача
         //авторизация
         autorized.autorize("ivanov_ii", "VsKexibt21");
         //заходим в витрину задач
@@ -92,11 +79,24 @@ public class SmartDevTest extends Basetest{
         // webDriver.quit();
         autorized.clickExit();
 
-        //Согласовать нач управления
-        //авторизация
+        //Спец управление четвертая задача
         autorized.autorize("ilya", "Ghbdtn123");
         //заходим в витрину задач
         searchTask.clickGosuslugi();
+        searchTask.getTasks();
+        task.getElementTask();
+        //завершаем задачу
+        approveKnmDecProjectSpec.clickButtonPrimary();
+        //проверка завершения задачи
+        autorized.resoultText();
+//        //  webDriver.quit();
+//        autorized.clickExit();
+//
+//        //Согласовать нач управления
+//        //авторизация
+//        autorized.autorize("ilya", "Ghbdtn123");
+//        //заходим в витрину задач
+//        searchTask.clickGosuslugi();
         searchTask.getTasks();
         task.getElementTask();
         //завершаем задачу

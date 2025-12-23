@@ -1,13 +1,19 @@
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.configuration2.builder.ConfigurationBuilder;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
+import java.lang.module.Configuration;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class DriverFactory {
     private RemoteWebDriver driver;
@@ -34,12 +40,14 @@ public class DriverFactory {
         driver = new FirefoxDriver(opts);
     }
 
-private void initYandex() {
-        WebDriverManager.chromedriver().driverVersion(System.getProperty("version")).setup();
+    private void initYandex() {
+       /// WebDriverManager.chromedriver().driverVersion(System.getProperty("version")).setup();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\IGoncharov\\Desktop\\тестовый\\yandexdriver.exe");
+
         ChromeOptions options = new ChromeOptions();
+        options.addExtensions(new File("src/main/resources/chrome/opera_cryptopro_extension_v3_latest.crx"));
         options.setBinary(System.getProperty("bin"));
-        options.addExtensions(new File("SmartDev/src/main/resources/chrome/CryptoPro_v2.crx"));
-    //   options.addExtensions(new File("src/main/resources/chrome/cryptoPRO.crx"));
+
         driver = new ChromeDriver(options);
     }
 
