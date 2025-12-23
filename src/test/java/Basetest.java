@@ -23,7 +23,7 @@ public class Basetest {
     public void getDriver() {
         factory = new DriverFactory();
         factory.initDriver();
-       // webDriver= factory.initDriver();
+      //  webDriver= factory.initDriver();
         webDriver = factory.getDriver();
         searchTask = new SearchTask(webDriver);
         autorized = new Autorized(webDriver);
@@ -35,8 +35,7 @@ public class Basetest {
         flexChangeKNMInfoToErknmManually = new Flex_changeKNMInfoToErknmManually(webDriver);
         flex_enterKnmPassportId = new Flex_enterKnmPassportId(webDriver);
         signKnmDecProject = new SignKnmDecProject(webDriver);
-        webDriver.get("https://smartid.reinform.ru/iam/auth/realms/smart/protocol/openid-connect/auth?client_id=smart-app&redirect_uri=https%3A%2F%2Fsmart-dev.reinform-int.ru%2Foauth%2Fcallback&response_type=code&scope=openid+email+profile&state=554ddeb1-766c-48ce-b076-f3b37cdb7e2b");
-
+        webDriver.get("https://smart-dev.reinform-int.ru/main/");
     }
     @AfterEach
     public void quit(){

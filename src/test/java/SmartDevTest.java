@@ -104,13 +104,13 @@ public class SmartDevTest extends Basetest{
         //проверка завершения задачи
         autorized.resoultText();
         //  webDriver.quit();
-        autorized.clickExit();
-
-        //Согласовать зам председателя
-        //авторизация
-        autorized.autorize("ilya", "Ghbdtn123");
-        // заходим в витрину задач
-        searchTask.clickGosuslugi();
+//        autorized.clickExit();
+//
+//        //Согласовать зам председателя
+//        //авторизация
+//        autorized.autorize("ilya", "Ghbdtn123");
+//        // заходим в витрину задач
+//        searchTask.clickGosuslugi();
         searchTask.getTasks();
         task.getElementTask();
         //завершаем задачу
@@ -149,15 +149,15 @@ public class SmartDevTest extends Basetest{
         flex_enterKnmPassportId.clickButtonComplete();
         //проверка завершения задачи
         autorized.resoultText();
-        autorized.clickExit();
-
-
-        //Утвердить решение
-        //авторизация
-        autorized.autorize("ilya", "Ghbdtn123");
-        //заходим в витрину задач
-        searchTask.clickGosuslugi();
-        searchTask.getTasks();
+//        autorized.clickExit();
+//
+//
+//        //Утвердить решение
+//        //авторизация
+//        autorized.autorize("ilya", "Ghbdtn123");
+//        //заходим в витрину задач
+//        searchTask.clickGosuslugi();
+//        searchTask.getTasks();
         //открываем задачу
         task.getElementTask();
         signKnmDecProject.clickButtonCimplete();

@@ -34,26 +34,11 @@ public class DriverFactory {
         driver = new FirefoxDriver(opts);
     }
 
-//public RemoteWebDriver initDriver() {
-//    System.setProperty("webdriver.chrome.driver", "D:\\drivers\\yandex\\driver\\yandexdriver.exe");
-//    var options = new ChromeOptions();
-//    options.setBinary("D:\\drivers\\yandex\\browser\\Application\\browser.exe");
-//    String userDataDir = "D:\\drivers\\yandex\\profile\\User Data";
-//    options.addArguments("user-data-dir=" + userDataDir);
-//    options.addArguments("--profile-directory=Profile 1");
-//    options.addArguments("--no-sandbox");
-//    options.addArguments("--disable-dev-shm-usage");
-//    options.addArguments("--disable-gpu");
-//    driver = new ChromeDriver(options);
-//    return driver;
-//}
 private void initYandex() {
         WebDriverManager.chromedriver().driverVersion(System.getProperty("version")).setup();
         ChromeOptions options = new ChromeOptions();
         options.setBinary(System.getProperty("bin"));
-        String userDataDir = "C:\\Users\\Илюха\\AppData\\Local\\Yandex\\YandexBrowser\\User Data";
-        options.addArguments("user-data-dir=" + userDataDir);
-        options.addArguments("--profile-directory=Profile 1");
+        options.addExtensions(new File("SmartDev/src/main/resources/chrome/CryptoPro_v2.crx"));
     //   options.addExtensions(new File("src/main/resources/chrome/cryptoPRO.crx"));
         driver = new ChromeDriver(options);
     }
