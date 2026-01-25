@@ -22,7 +22,7 @@ public class Basetest {
     @BeforeEach
     public void getDriver() {
         factory = new DriverFactory();
-        factory.initDriver();
+        factory.initYandex();
       //  webDriver= factory.initDriver();
         webDriver = factory.getDriver();
         searchTask = new SearchTask(webDriver);

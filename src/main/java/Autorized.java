@@ -44,18 +44,18 @@ public class Autorized {
     }
 
     public void clickAutorize() {
-        new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(clickEnter)).click();
+        new WebDriverWait(webDriver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(clickEnter)).click();
     }
 
     public void clickExit() {
 
-        new WebDriverWait(webDriver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(exit)).click();
+        new WebDriverWait(webDriver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(exit)).click();
     }
 
     //проверка завершения задачи
     public String resoultText() {
         try {
-            return new WebDriverWait(webDriver, Duration.ofSeconds(20))
+            return new WebDriverWait(webDriver, Duration.ofSeconds(50))
                     .until(ExpectedConditions.visibilityOfElementLocated(resoult)).getText();
         } catch (Exception e) {
             throw new RuntimeException("Задача не завершена: витрина задач не открыта.");

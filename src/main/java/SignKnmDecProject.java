@@ -1,11 +1,10 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 public class SignKnmDecProject {
@@ -15,16 +14,14 @@ public class SignKnmDecProject {
         this.webDriver = webDriver;
 
     }
-    By buttonComplete=By.xpath(".//button[normalize-space()='Подписать']");
 
-    public void clickButtonCimplete(){
-        WebElement webElement =  new WebDriverWait(webDriver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.elementToBeClickable(buttonComplete));
-        System.out.println(webElement.isDisplayed());
-        webElement.click();
-//        Robot robot = new Robot();
-//        Thread.sleep(1000); // ждём появления окна
-//        robot.keyPress(KeyEvent.VK_ENTER);
-//        robot.keyRelease(KeyEvent.VK_ENTER);
+    public void clickButtonCimplete() throws InterruptedException {
+        new WebDriverWait(webDriver , Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[contains(text(),'Подписать')]"))).click();
+        Thread.sleep(3000);
+        WebElement shadowHost = webDriver.findElement(By.tagName("cdp-filestore-manager"));
+        SearchContext shadowRoot = shadowHost.getShadowRoot();
+        WebElement fileInput = shadowRoot.findElement(By.cssSelector("button[type='button']"));
+        fileInput.click();
+
     }
 }
