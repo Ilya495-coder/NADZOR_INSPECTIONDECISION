@@ -16,7 +16,7 @@ public class StartINSPECTIONDECISION {
     By supervisionTypeOption = By.xpath("//span[contains(@class, 'ng-option-label') and normalize-space()='региональный государственный строительный надзор']");
 
     // Основание для КНМ
-    By knmBasisInput = By.xpath("//*[@id='skeleton_content']/div/cdp-view/app-root/app-decision-create/div/div/div[2]/form/enter-information-form/div[2]/div/ng-select/div/div/div[3]/input");
+    By knmBasisInput = By.xpath(".//label[contains(text(),'Основание для КНМ')]/following-sibling::div/ng-select/div/div/div[3]/input");
     By knmBasisOption = By.xpath(".//span[contains(@class,'ng-option-label') and contains(@class, 'ng-star-inserted') and text()='программа проверок']");
 
     // Кнопка "Добавить объект"
@@ -83,6 +83,10 @@ public class StartINSPECTIONDECISION {
                 .until(ExpectedConditions.elementToBeClickable(supervisionTypeOption)).click();
     }
 
+    public void clickKnmBasisInput() {
+        webDriver.findElement(knmBasisInput).click();
+    }
+
     public void selectKnmBasis() {
         WebElement basisInput = new WebDriverWait(webDriver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(knmBasisInput));
@@ -132,7 +136,7 @@ public class StartINSPECTIONDECISION {
 
     public void enableExpertiseAndSpecialist() {
         webDriver.findElement(expertiseYes).click();
-       // webDriver.findElement(specialistEngage).click();
+        // webDriver.findElement(specialistEngage).click();
     }
 
     public void selectSpecialist(String specialistName) {
@@ -187,5 +191,15 @@ public class StartINSPECTIONDECISION {
 
     public void submitForApproval() {
         webDriver.findElement(submitForApprovalButton).click();
+    }
+
+    public void signed() throws InterruptedException {
+
+        Thread.sleep(5000);
+        WebElement shadowHost = webDriver.findElement(By.xpath("(//cdp-filestore-manager)[2]"));
+        SearchContext shadowRoot = shadowHost.getShadowRoot();
+        WebElement fileInput = shadowRoot.findElement(By.cssSelector("button[type='button']"));
+        fileInput.click();
+
     }
 }

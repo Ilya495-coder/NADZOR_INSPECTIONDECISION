@@ -17,8 +17,8 @@ public class SignKnmDecProject {
 
     public void clickButtonCimplete() throws InterruptedException {
         new WebDriverWait(webDriver , Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(By.xpath(".//button[contains(text(),'Подписать')]"))).click();
-        Thread.sleep(3000);
-        WebElement shadowHost = webDriver.findElement(By.tagName("cdp-filestore-manager"));
+        Thread.sleep(5000);
+        WebElement shadowHost = webDriver.findElement(By.tagName("cdp-filestore-manager[2]"));
         SearchContext shadowRoot = shadowHost.getShadowRoot();
         WebElement fileInput = shadowRoot.findElement(By.cssSelector("button[type='button']"));
         fileInput.click();
